@@ -1,9 +1,9 @@
-Bon Voyage
+**Bon Voyage**
 
 Created by: Ester Xie
 
 
-Description:
+**Description:**
 
 Bon Voyage was created to highlight different locations around the world. 
 Traveling for me is a stress reliver, and with covid
@@ -16,22 +16,22 @@ Traveling takes us out of our comfort zone, and allows us to see, taste, and
 try new things, and I cannot wait to hear more about the meaningful experiences
 others have as they embrace new adventures.
 
-Technical Specifications:
+**Technical Specifications:**
 
-Homepage:
+**Homepage:**
 - Landing page for my site. Used to describe why I created Bon Voyage.
 
-Places to Visit:
+**Places to Visit:**
 - Describes each of the 6 different continents I'll be covering.
 - In the future, implement a landing page for each of these locations
 with popular activities and places to visit.
 
-Flights:
+**Flights:**
 - Grabbed a public web API called Aviation Stack. Able to grab 100 free flights 
 per day. I grabbed the ones flying out the next day, so that the flights
 are always updated.
 
-Register:
+**Register:**
 - A dropdown menu that offers two options:
 -- Users can either register for an account.
 -- When registered, users will be able to see flights, and
