@@ -105,3 +105,6 @@
 2022-06-27 13:21:04.441 DEBUG 21840 --- [http-nio-8080-exec-4] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
 2022-06-27 13:21:04.451 DEBUG 21840 --- [http-nio-8080-exec-6] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
 2022-06-27 13:21:04.475 DEBUG 21840 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : SELECT * FROM flights order by departure_estimated
+2022-06-27 13:21:04.631 DEBUG 21840 --- [http-nio-8080-exec-3] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2022-06-27 13:21:04.637 DEBUG 21840 --- [http-nio-8080-exec-3] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2022-06-27 13:21:04.696 DEBUG 21840 --- [http-nio-8080-exec-6] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
