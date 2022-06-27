@@ -12,13 +12,12 @@ import com.esterxie.flightmanagementsystem.service.FlightService;
 @RequestMapping("/admin")
 public class AdminController {
 
-	// Displays all flights on the admin dashboard
 	@Autowired
 	FlightService flightService;
 
 	@GetMapping("/dashboard")
 	public String dashboard(Model model) {
-		model.addAttribute("flightsList", flightService.getAllFlights());
+		model.addAttribute("flightsList", flightService.getAllFlightsSorted());
 		return "flights";
 	}
 }

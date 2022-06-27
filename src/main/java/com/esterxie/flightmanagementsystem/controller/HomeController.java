@@ -3,7 +3,6 @@ package com.esterxie.flightmanagementsystem.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-// Displays 
 @Controller
 public class HomeController {
 
@@ -27,8 +26,8 @@ public class HomeController {
 		return "contact";
 	}
 
-	@GetMapping("/shoppingcart")
-	public String shoppingcart() {
+	@GetMapping("/shoppingCart")
+	public String shoppingCart() {
 		return "shoppingcart";
 	}
 

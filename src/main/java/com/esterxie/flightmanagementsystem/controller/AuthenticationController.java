@@ -1,12 +1,8 @@
 package com.esterxie.flightmanagementsystem.controller;
 
-import java.util.Optional;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -29,7 +25,20 @@ public class AuthenticationController {
 	}
 
 	@PostMapping("/register")
-	public String register(@Valid User user, BindingResult result, Model model) {
+	public String register(@Valid User user, BindingResult result) {
+
+		if (!user.getEmail().equals(user.getRepeatedEmail())) {
+			result.rejectValue("repeatedEmail", "error.repeatedEmail",
+					"Kindly enter the same email that you entered above");
+			return "register";
+		}
+
+		if (!user.getPassword().equals(user.getRepeatedPassword())) {
+			result.rejectValue("repeatedPassword", "error.repeatedPassword",
+					"Kindly enter the same password that you entered above");
+			return "register";
+		}
+
 		if (result.hasErrors()) {
 			return "register";
 		} else if (userService.findUserByEmail(user.getEmail()).isPresent()) {
@@ -37,10 +46,6 @@ public class AuthenticationController {
 			return "register";
 		} else {
 			userService.saveUser(user);
-			/*
-			 * model.addAttribute("successful", true); model.addAttribute("user", new
-			 * User());
-			 */
 			return "redirect:/login";
 		}
 	}
@@ -56,7 +61,7 @@ public class AuthenticationController {
 	}
 
 	/**
-	 * This api will be used to show any errors on the frontend.
+	 * This api will be used to show errors on the frontend if happens.
 	 *
 	 * @param model
 	 * @return
@@ -67,27 +72,8 @@ public class AuthenticationController {
 		return "login";
 	}
 
-	/**
-	 * After successfully logging in, the request will come to this controller. Here
-	 * we will identify if the logged in user is admin or customer. If the logged-in
-	 * user is a normal user then he will be redirected to the customer dashboard.
-	 * Else he will be redirected towards admin dashboard.
-	 *
-	 * @param model
-	 * @return
-	 */
 	@GetMapping("/login-success")
-	public String loginSuccess(Model model) {
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		String email = authentication.getName();
-		Optional<User> user = userService.findUserByEmail(email);
-		if (user.isPresent() && user.get().getRole().equalsIgnoreCase("ROLE_ADMIN")) {
-			return "redirect:/admin/dashboard";
-		} else if (user.isPresent() && user.get().getRole().equalsIgnoreCase("ROLE_USER")) {
-			return "redirect:/customer/dashboard";
-		} else {
-			model.addAttribute("error", true);
-			return "login";
-		}
+	public String loginSuccess() {
+		return "homepage";
 	}
 }

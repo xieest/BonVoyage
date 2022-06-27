@@ -1,4 +1,4 @@
-package com.app.flightmanagementsystem;
+package com.esterxie.flightmanagementsystem;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

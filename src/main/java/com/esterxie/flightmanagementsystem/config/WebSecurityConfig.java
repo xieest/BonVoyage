@@ -25,8 +25,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	UserDetailsService userDetailsService;
 
 	/**
-	 * This method is getting used when the user logins. It will authenticate the
-	 * user.
+	 * This method is getting used when the user will login. It will authenticate
+	 * the user.
 	 *
 	 * @param auth
 	 * @throws Exception
@@ -37,9 +37,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 
 	/**
-	 * This method is authorizing which requests should be authorized and which
-	 * won't be. This will also handle which user can access which paths and which
-	 * user can do which.
+	 * This method is authorizing which requests should be authorized and which not
+	 * be. This will also handle which user can access which paths and which user
+	 * can do which.
 	 *
 	 * @param http
 	 * @throws Exception
@@ -48,7 +48,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
 				.antMatchers("/", "/login/**", "/register/**", "/populateNewFlights/**", "/shop", "/placesToVisit",
-						"/contact", "/shop", "/shoppingcart")
+						"/contact", "/shoppingCart")
 				.permitAll().anyRequest().authenticated().and().formLogin().loginPage("/login")
 				.usernameParameter("email").failureUrl("/login-error").defaultSuccessUrl("/login-success", true).and()
 				.logout().logoutSuccessUrl("/home");
@@ -70,7 +70,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 
 	/**
-	 * Used to allow the 2 paths that we have html pages for.
+	 * Its for allowing these 2 paths that we have html pages.
 	 *
 	 * @param web
 	 * @throws Exception

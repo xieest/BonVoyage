@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"><head>
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +26,8 @@
         <a class="home-page" th:href="@{/}">Home</a>
         <a class="recommendations-page" th:href="@{/placesToVisit}">Places to Visit</a>
         <a class="shop" th:href="@{/shop}">Shop</a>
-        <a sec:authorize="isAuthenticated()" class="flights-page" th:href="@{/admin/dashboard}">Flights</a>
+        <a sec:authorize="isAuthenticated()" class="flights-page" th:href="@{/flight/list}">Flights</a>
+        <a sec:authorize="hasRole('ROLE_USER')" class="flights-page" th:href="@{/user/flights}">Booked Flights</a>
         <a sec:authorize="isAuthenticated()" th:href="@{/logout}" style="color: red">Logout</a>
         <div class="dropdown" sec:authorize="!isAuthenticated()">
             <a href="javascript:void(0)" class="dropbtn">Account</a>
@@ -35,9 +37,9 @@
                 <a th:href="@{/contact}">Contact</a>
             </div>
         </div>
-        <a th:href="@{/shoppingcart}" class="shoppingcart"><span class="counter">0</span>
+        <a th:href="@{/shoppingCart}" class="shoppingcart"><span class="counter">0</span>
             <img width="50px" height="50px" src="https://img.icons8.com/nolan/64/shopping-cart-promotion.png"/>
-          </a>
+        </a>
     </div>
     <div class="login">
         <form th:action="@{/register}" th:object="${user}" method="post">
@@ -57,16 +59,29 @@
             <div style="color: red;" class="alert alert-warning" th:if="${#fields.hasErrors('email')}"
                  th:errors="*{email}"></div>
 
+            <label for="repeatedEmail"><b>Repeat Email</b></label>
+            <input type="text" id="repeatedEmail" th:field="*{repeatedEmail}" placeholder="Confirm your email"
+                   pattern="^(.+)@(.+)$"
+                   required>
+            <div style="color: red;" class="alert alert-warning" th:if="${#fields.hasErrors('repeatedEmail')}"
+                 th:errors="*{repeatedEmail}"></div>
+
+
             <label for="password"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" th:field="*{password}" id="password" required>
             <div style="color: red;" class="alert alert-warning" th:if="${#fields.hasErrors('password')}"
                  th:errors="*{password}"></div>
+
+            <label for="repeatedPassword"><b>Repeat Password</b></label>
+            <input type="password" placeholder="Confirm your password" th:field="*{repeatedPassword}"
+                   id="repeatedPassword" required>
+            <div style="color: red;" class="alert alert-warning" th:if="${#fields.hasErrors('repeatedPassword')}"
+                 th:errors="*{repeatedPassword}"></div>
             <div>
                 <input type="submit" class="submit" value="Submit">
             </div>
         </form>
     </div>
 </div>
-<script type="text/javascript" th:src="@{/js/app.js}"></script>
 </body>
 </html>

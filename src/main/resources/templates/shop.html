@@ -23,24 +23,25 @@
         <p class="headertext2">Voyage</p>
     </div>
 
-    <div class="navigation">
-        <a class="home-page" th:href="@{/}">Home</a>
-        <a class="recommendations-page" th:href="@{/placesToVisit}">Places to Visit</a>
-        <a class="shop" th:href="@{/shop}">Shop</a>
-        <a sec:authorize="isAuthenticated()" class="flights-page" th:href="@{/admin/dashboard}">Flights</a>
-        <a sec:authorize="isAuthenticated()" th:href="@{/logout}" style="color: red">Logout</a>
-        <div class="dropdown" sec:authorize="!isAuthenticated()">
-            <a href="javascript:void(0)" class="dropbtn">Account</a>
-            <div class="dropdown-content">
-                <a th:href="@{/register}">Register</a>
-                <a th:href="@{/login}">Login</a>
-                <a th:href="@{/contact}">Contact</a>
-            </div>
+<div class="navigation">
+    <a class="home-page" th:href="@{/}">Home</a>
+    <a class="recommendations-page" th:href="@{/placesToVisit}">Places to Visit</a>
+    <a class="shop" th:href="@{/shop}">Shop</a>
+    <a sec:authorize="isAuthenticated()" class="flights-page" th:href="@{/flight/list}">Flights</a>
+    <a sec:authorize="hasRole('ROLE_USER')" class="flights-page" th:href="@{/user/flights}">Booked Flights</a>
+    <a sec:authorize="isAuthenticated()" th:href="@{/logout}" style="color: red">Logout</a>
+    <div class="dropdown" sec:authorize="!isAuthenticated()">
+        <a href="javascript:void(0)" class="dropbtn">Account</a>
+        <div class="dropdown-content">
+            <a th:href="@{/register}">Register</a>
+            <a th:href="@{/login}">Login</a>
+            <a th:href="@{/contact}">Contact</a>
         </div>
-         <a th:href="@{/shoppingcart}" class="shoppingcart"><span class="counter">0</span>
-            <img width="50px" height="50px" src="https://img.icons8.com/nolan/64/shopping-cart-promotion.png"/>
-          </a>
     </div>
+    <a th:href="@{/shoppingCart}" class="shoppingcart"><span class="counter">0</span>
+        <img width="50px" height="50px" src="https://img.icons8.com/nolan/64/shopping-cart-promotion.png"/>
+    </a>
+</div>
 </header>
 <main class="font">
         <section class="shop-container grid columns-3">

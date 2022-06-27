@@ -7,6 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Smooch&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap" rel="stylesheet">
+
+    <link th:href="@{/css/header.css}" rel="stylesheet"/>
+
     <!--    These are for the bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -18,16 +25,9 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
     <link rel="stylesheet" type="text/css" href="https://datatables.net/media/css/site-examples.css">
 
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Smooch&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap" rel="stylesheet">
-	<link th:href="@{/css/header.css}" rel="stylesheet"/>
-	
 </head>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
     th {
         font-family: monospace;
     }
@@ -63,6 +63,8 @@
     }
 </style>
 <body>
+<link th:href="@{/css/flights.css}" rel="stylesheet"/>
+
 <div class="header">
     <p class="headertext1 m-0">Bon</p>
     <p class="headertext2 m-0">Voyage</p>
@@ -72,7 +74,8 @@
     <a class="home-page" th:href="@{/}">Home</a>
     <a class="recommendations-page" th:href="@{/placesToVisit}">Places to Visit</a>
     <a class="shop" th:href="@{/shop}">Shop</a>
-    <a sec:authorize="isAuthenticated()" class="flights-page" th:href="@{/admin/dashboard}">Flights</a>
+    <a sec:authorize="isAuthenticated()" class="flights-page" th:href="@{/flight/list}">Flights</a>
+    <a sec:authorize="hasRole('ROLE_USER')" class="flights-page" th:href="@{/user/flights}">Booked Flights</a>
     <a sec:authorize="isAuthenticated()" th:href="@{/logout}" style="color: red">Logout</a>
     <div class="dropdown" sec:authorize="!isAuthenticated()">
         <a href="javascript:void(0)" class="dropbtn">Account</a>
@@ -82,9 +85,9 @@
             <a th:href="@{/contact}">Contact</a>
         </div>
     </div>
-   <a th:href="@{/shoppingcart}" class="shoppingcart"><span class="counter">0</span>
-            <img width="50px" height="50px" src="https://img.icons8.com/nolan/64/shopping-cart-promotion.png"/>
-          </a>
+    <a th:href="@{/shoppingCart}" class="shoppingcart"><span class="counter">0</span>
+        <img width="50px" height="50px" src="https://img.icons8.com/nolan/64/shopping-cart-promotion.png"/>
+    </a>
 </div>
 
 <div style="float: right;padding: 20px">
@@ -93,15 +96,16 @@
         <button type="submit" class="btn btn-info">Search</button>
     </form>
 </div>
-
+<div style="float: left;margin-left: 20px;margin-top: 20px;">
+    <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/populateNewFlights}"
+       class="btn btn-primary">Fetch New Flights</a>
+</div>
 <div class="jumbotron jumbotron-fluid" style="margin: 15px">
-    <!--    <div class="container">-->
     <table class="table table-bordered table-responsive-md" id="table_id2">
-    
         <thead>
         <tr>
             <th>Flight#</th>
-            <th>Date</th>
+            <th>Flight-Date</th>
             <th>Status</th>
             <th>Airline-Name</th>
             <th>Arrival-Airport</th>
@@ -112,9 +116,6 @@
         </tr>
         </thead>
         <tbody>
-        
-        <!--Iterate over the flights pulled from the API and
-        grab the selected attributed below-->
         <tr th:each="flight : ${flightsList}">
             <td th:text="${flight.flight_number}"></td>
             <td th:text="${flight.flight_date}"></td>
@@ -125,15 +126,14 @@
             <td th:text="${flight.getDepartureAirport}"></td>
             <td th:text="${flight.departure_estimated}"></td>
             <td>
-                <a th:href="@{/flight/delete/{id}(id=${flight.flight_number})}"
+                <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/flight/delete/{id}(id=${flight.flight_number})}"
                    class="btn btn-danger">Delete</a>
-                <!--                <a th:href="@{/flight/update/{id}(id=${flight.flight_number})}"
-                                   class="btn btn-warning">Update</a>-->
+                <a sec:authorize="hasRole('ROLE_USER')" th:href="@{/flight/book/{id}(id=${flight.flight_number})}"
+                   class="btn btn-success">Book</a>
             </td>
         </tr>
         </tbody>
     </table>
-    <!--    </div>-->
 </div>
 <script type="text/javascript">
     $(document).ready(function () {
