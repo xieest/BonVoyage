@@ -1,5 +1,5 @@
 # <p align="center">Bon Voyage</p>
-#<img width="200" src="https://images.unsplash.com/photo-1549937917-03ccda498729?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80" alt="Bon Voyage">
+# <p align="center"><img width="500" src="https://images.unsplash.com/photo-1549937917-03ccda498729?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80" alt="Bon Voyage"></p>
 
 ## Author:
 - [Ester Xie](https://www.github.com/xieest)
