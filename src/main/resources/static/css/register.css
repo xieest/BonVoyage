@@ -1,0 +1,27 @@
+.login {
+  width: 600px;
+  margin: 30px auto;
+  border: 2px solid grey;
+  padding: 20px;
+}
+
+.submit {
+  display: inline-block;
+}
+
+form div {
+  text-align: center;
+}
+
+input:not([type="submit"]){
+  border: 2px solid black;
+}
+
+form h1 {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.register-pic img{
+  display: center;
+}

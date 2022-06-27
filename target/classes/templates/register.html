@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Smooch&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap" rel="stylesheet">
+
+    <link th:href="@{/css/register.css}" rel="stylesheet"/>
+    <link th:href="@{/css/header.css}" rel="stylesheet"/>
+    <link th:href="@{/css/form.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="website">
+    <div class="header">
+        <p class="headertext1">Bon</p>
+        <p class="headertext2">Voyage</p>
+    </div>
+
+    <div class="navigation">
+        <a class="home-page" th:href="@{/}">Home</a>
+        <a class="recommendations-page" th:href="@{/placesToVisit}">Places to Visit</a>
+        <a class="shop" th:href="@{/shop}">Shop</a>
+        <a sec:authorize="isAuthenticated()" class="flights-page" th:href="@{/admin/dashboard}">Flights</a>
+        <a sec:authorize="isAuthenticated()" th:href="@{/logout}" style="color: red">Logout</a>
+        <div class="dropdown" sec:authorize="!isAuthenticated()">
+            <a href="javascript:void(0)" class="dropbtn">Account</a>
+            <div class="dropdown-content">
+                <a th:href="@{/register}">Register</a>
+                <a th:href="@{/login}">Login</a>
+                <a th:href="@{/contact}">Contact</a>
+            </div>
+        </div>
+        <a th:href="@{/shoppingcart}" class="shoppingcart"><span class="counter">0</span>
+            <img width="50px" height="50px" src="https://img.icons8.com/nolan/64/shopping-cart-promotion.png"/>
+          </a>
+    </div>
+    <div class="login">
+        <form th:action="@{/register}" th:object="${user}" method="post">
+            <div class="register-pic">
+                <img src="https://img.icons8.com/cotton/64/undefined/name--v2.png"/>
+            </div>
+            <h1>Register A New Account</h1>
+            <label for="name"><b>Name</b></label>
+            <input type="text" th:field="*{name}" id="name" placeholder="Your Name Here" required>
+            <div style="color: red;" class="alert alert-warning" th:if="${#fields.hasErrors('name')}"
+                 th:errors="*{name}"></div>
+
+            <label for="email"><b>Email</b></label>
+            <input type="text" id="email" th:field="*{email}" placeholder="example@example.com"
+                   pattern="^(.+)@(.+)$"
+                   required>
+            <div style="color: red;" class="alert alert-warning" th:if="${#fields.hasErrors('email')}"
+                 th:errors="*{email}"></div>
+
+            <label for="password"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" th:field="*{password}" id="password" required>
+            <div style="color: red;" class="alert alert-warning" th:if="${#fields.hasErrors('password')}"
+                 th:errors="*{password}"></div>
+            <div>
+                <input type="submit" class="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+</div>
+<script type="text/javascript" th:src="@{/js/app.js}"></script>
+</body>
+</html>

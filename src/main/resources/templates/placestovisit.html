@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Smooch&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap" rel="stylesheet">
+
+    <link th:href="@{/css/header.css}" rel="stylesheet"/>
+
+    <title>Document</title>
+</head>
+<body>
+<link th:href="@{/css/placestovisit.css}" rel="stylesheet"/>
+<div>
+    <div class="header">
+        <p class="headertext1">Bon</p>
+        <p class="headertext2">Voyage</p>
+    </div>
+
+    <div class="navigation">
+        <a class="home-page" th:href="@{/}">Home</a>
+        <a class="recommendations-page" th:href="@{/placesToVisit}">Places to Visit</a>
+        <a class="shop" th:href="@{/shop}">Shop</a>
+        <a sec:authorize="isAuthenticated()" class="flights-page" th:href="@{/admin/dashboard}">Flights</a>
+        <a sec:authorize="isAuthenticated()" th:href="@{/logout}" style="color: red">Logout</a>
+        <div class="dropdown" sec:authorize="!isAuthenticated()">
+            <a href="javascript:void(0)" class="dropbtn">Account</a>
+            <div class="dropdown-content">
+                <a th:href="@{/register}">Register</a>
+                <a th:href="@{/login}">Login</a>
+                <a th:href="@{/contact}">Contact</a>
+            </div>
+        </div>
+        <a th:href="@{/shoppingcart}" class="shoppingcart"><span class="counter">0</span>
+            <img width="50px" height="50px" src="https://img.icons8.com/nolan/64/shopping-cart-promotion.png"/>
+          </a>
+    </div>
+
+    <div class="container">
+
+        <div class="card">
+            <div class="card__header">
+                <img th:src="@{/images/Africa.jpg}" alt="card__image" class="card__image" width="600">
+            </div>
+            <div class="card__body">
+                <h4>Africa</h4>
+                <p> From the lush rainforests and glorious tropical coastline of Central Africa to the rippling dunes of
+                    the Namib
+                    Desert, from the signature savannah of the Serengeti to jagged mountains, green-tinged highlands and
+                    deep-gash
+                    canyons that mark the Great Rift Valley's continental traverse – wherever you find yourself on this
+                    big, beautiful
+                    continent, Africa has few peers when it comes to natural beauty.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card__header">
+                <img th:src="@{/images/Asia.jpg}" alt="card__image" class="card__image" width="600">
+            </div>
+            <div class="card__body">
+                <h4>Asia</h4>
+                <p> Most of the significant achievements of the modern world had their infancy in Asia. Asia’s ambitious
+                    civilisations
+                    ultimately gave rise to some of the world’s most revolutionary ideas and important technology.
+                    Ancient wonders and
+                    sacred spaces abound across the continent, from the Great Wall of China and the temples of Angkor to
+                    lesser-known
+                    marvels in Myanmar, Nepal and Afghanistan.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card__header">
+                <img th:src="@{/images/Australia.jpeg}" src="photos/.jpeg" alt="card__image" class="card__image" width="600">
+            </div>
+            <div class="card__body">
+                <h4>Australia</h4>
+                <p>Whether you’re tracing outlines of rock art more than 20,000 years old in Kakadu National Park,
+                    floating in the
+                    azure waters of Rottnest Island or admiring the iconic sites of Sydney Harbour where the Eora Nation
+                    traded for
+                    centuries, you will be stunned by the culture of Indigenous people.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card__header">
+                <img th:src="@{/images/Europe.jpg}"  alt="card__image" class="card__image" width="600">
+            </div>
+            <div class="card__body">
+                <h4>Europe</h4>
+                <p>Europe’s almost unmanageable wealth of attractions is its biggest single draw: the birthplace of
+                    democracy in Athens, the
+                    Renaissance art of Florence, the graceful canals of Venice, the Napoleonic splendour of Paris, and
+                    the multilayered historical
+                    and cultural canvas of London.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card__header">
+                <img th:src="@{/images/NorthAmerica.webp}" alt="card__image" class="card__image" width="600">
+            </div>
+            <div class="card__body">
+                <h4>North America</h4>
+                <p>A historical melting pot of cultures and identities, North America features some of the world’s most
+                    multicultural art.
+                    From Toronto's film festival to Mexico City's thriving music scene, North America is a veritable
+                    smorgasbord of enlightening
+                    experiences just waiting to be uncovered.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card__header">
+                <img th:src="@{/images/South America.jpg}" alt="card__image" class="card__image" width="600">
+            </div>
+            <div class="card__body">
+                <h4>South America</h4>
+                <p>You can hike past ancient temples first laid down by the Incas, contemplate the awe-inspiring power
+                    of Iguazú Falls, or
+                    spend the day watching wildlife from a dugout canoe on one of the Amazon's countless igarapés
+                    (narrow waterways). You can
+                    even barrel down Andean roads by mountain bike.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

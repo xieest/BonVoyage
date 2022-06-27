@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bon Voyage</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Smooch&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap" rel="stylesheet">
+
+    <link th:href="@{/css/homepage.css}" rel="stylesheet"/>
+    <link th:href="@{/css/header.css}" rel="stylesheet"/>
+    <link th:href="@{/css/g.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="header">
+    <p class="headertext1">Bon</p>
+    <p class="headertext2">Voyage</p>
+</div>
+
+<div class="navigation">
+    <a class="home-page" th:href="@{/}">Home</a>
+    <a class="recommendations-page" th:href="@{/placesToVisit}">Places to Visit</a>
+    <a class="shop" th:href="@{/shop}">Shop</a>
+    <a sec:authorize="isAuthenticated()" class="flights-page" th:href="@{/admin/dashboard}">Flights</a>
+    <a sec:authorize="isAuthenticated()" th:href="@{/logout}" style="color: red">Logout</a>
+    <div class="dropdown" sec:authorize="!isAuthenticated()">
+        <a href="javascript:void(0)" class="dropbtn">Account</a>
+        <div class="dropdown-content">
+            <a th:href="@{/register}">Register</a>
+            <a th:href="@{/login}">Login</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+    <a th:href="@{/shoppingcart}" class="shoppingcart"><span class="counter">0</span>
+            <img width="50px" height="50px" src="https://img.icons8.com/nolan/64/shopping-cart-promotion.png"/>
+          </a>
+</div>
+
+ <div class="about-section a-i-c">
+    <div class = "about-me-pic flex a-i-c">
+      <img src = "images/profilepic.jpg" class = "profilepic"></div>
+      <p class = "about-me-text">Hello, and welcome to my page! I created this site to help you learn
+        more about 6 different continents (no Antartica here, we hate the snow!), and the most noteworthy places to visit
+        within those continents. Included in this site will be pictures of some tourist areas, places to avoid, and all the must
+        do activities for when you're in town next. I'll even include some tips and tricks for traveling, and hopefully inspire 
+        you to plan your next trip to one of our featured places. Take advantage of the flight discounts offered when you book 
+        through this site. Enjoy, and bon voyage!
+      </p>
+  </div>
+
+  <div class="font discover">
+    <div class="flex a-i-c"><h3 class="h-mr">Discover the World</h3><img src="https://img.icons8.com/fluency/48/000000/earth-planet.png" width="25px" height="25px" alt=""></div>
+    <div class="grid-c">
+      <div class="c-div">
+        <div>
+          <img src="https://images.unsplash.com/photo-1583435292794-4803a56c5043?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="" class="c-image">
+          <div class="c-text"><h5>Bagan</h5><span>Myanmar</span></div>
+        </div>
+      </div>
+      <div class="c-div">
+        <div>
+          <img src="https://images.unsplash.com/photo-1439725434120-c1b50e0cc329?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="" class="c-image">
+          <div class="c-text"><h5>Blue Lagoon</h5><span>Iceland</span></div>
+        </div>
+      </div>
+      <div class="c-div">
+        <div>
+          <img src="https://images.unsplash.com/photo-1589083130544-0d6a2926e519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="" class="c-image">
+          <div class="c-text"><h5>Beach Shoreline</h5><span>Miami</span></div>
+        </div>
+      </div>
+      <div class="c-div">
+        <div>
+          <img src="https://images.unsplash.com/photo-1580502304784-8985b7eb7260?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="" class="c-image">
+          <div class="c-text"><h5>Oia</h5><span>Greece</span></div>
+        </div>
+      </div>
+      <div class="c-div">
+        <div>
+          <img src="https://images.unsplash.com/photo-1592620540259-75b9f6500187?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1033&q=80" alt="" class="c-image">
+          <div class="c-text"><h5>Forbidden City</h5><span>China</span></div>
+        </div>
+      </div>
+  </div>
+</div>
+<script type="text/javascript" th:src="@{/js/app.js}"></script>
+</body>
+</html>
