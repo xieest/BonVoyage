@@ -1,4 +1,4 @@
-# Bon Voyage
+# <p align="center">Bon Voyage</p>
 
 ## Author:
 - [Ester Xie](https://www.github.com/xieest)
