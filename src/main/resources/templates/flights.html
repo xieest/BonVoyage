@@ -27,6 +27,7 @@
 	
 </head>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
     th {
         font-family: monospace;
     }
@@ -34,11 +35,37 @@
     td {
         font-family: cursive;
     }
+    .header > p {
+    	margin: 0!important;
+    	color: black;
+    	position: relative;
+    	line-height: 1;
+    	padding: 0;
+    	transform: scale(0.97)
+    }
+    
+ 	.header p:nth-child(1) {
+ 	font-family: 'Times New Roman', serif;
+ 	top: -15px;
+ 	}
+ 	
+    .header {
+    	height: 150.67px;
+    	align-items: center;
+    }
+    .navigation a {
+    	font-family: 'Times New Roman', serif;
+    	text-decoration: underline;
+    	color: purple;
+    }
+    .navigation a:active {
+    	color:blue;
+    }
 </style>
 <body>
 <div class="header">
-    <p class="headertext1">Bon</p>
-    <p class="headertext2">Voyage</p>
+    <p class="headertext1 m-0">Bon</p>
+    <p class="headertext2 m-0">Voyage</p>
 </div>
 
 <div class="navigation">
@@ -74,7 +101,7 @@
         <thead>
         <tr>
             <th>Flight#</th>
-            <th>Flight-Date</th>
+            <th>Date</th>
             <th>Status</th>
             <th>Airline-Name</th>
             <th>Arrival-Airport</th>
@@ -85,6 +112,9 @@
         </tr>
         </thead>
         <tbody>
+        
+        <!--Iterate over the flights pulled from the API and
+        grab the selected attributed below-->
         <tr th:each="flight : ${flightsList}">
             <td th:text="${flight.flight_number}"></td>
             <td th:text="${flight.flight_date}"></td>

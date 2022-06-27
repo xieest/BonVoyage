@@ -282,3 +282,29 @@
     border-radius: 20px;
     background-color: #fff;
 }
+
+.popup {
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	padding: 50px;
+	width: 100%;
+	max-width: 500px;
+	box-shadow: 0 0 45px 0 rgba(0, 0, 0, 0.7);
+}
+
+.popup span {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	font-size: 40px;
+	color: black;
+	cursor: pointer;
+}
+
+.popup.active {
+	display: block;
+}

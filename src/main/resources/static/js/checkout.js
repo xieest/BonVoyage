@@ -73,3 +73,15 @@ else {
             _s(".counter").innerHTML = storage.length
         })
     })
+    
+    _s(".ch").addEventListener("click", e=> {
+		storage = []
+		localStorage.setItem("products", JSON.stringify(storage))
+          //Reupdate the counter
+        _s(".counter").innerHTML = storage.length
+        _s("#product-container").innerHTML = ""
+        _s(".popup").classList.add("active")
+	})
+	_s(".close-popup").addEventListener("click", e=> {
+		 _s(".popup").classList.remove("active")
+	}) 
