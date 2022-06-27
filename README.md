@@ -1,5 +1,4 @@
-# <p align="center">Bon Voyage</p>
-# <p align="center"><img width="500" img height="300" src="https://www.coastalbusiness.com/pub/media/catalog/product/cache/45eae73ed333c8d53637098fdf4d8594/b/o/bon_voyage-plane_coastal_01.png" alt="Bon Voyage"></p>
+# <p align="center"><img width="500" img height="400" src="https://www.coastalbusiness.com/pub/media/catalog/product/cache/45eae73ed333c8d53637098fdf4d8594/b/o/bon_voyage-plane_coastal_01.png" alt="Bon Voyage"></p>
 
 ## Author:
 - [Ester Xie](https://www.github.com/xieest)
