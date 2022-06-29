@@ -26,8 +26,7 @@ decide on their next travel destination.
 1) Stylizing the website how I wanted it to look. I wanted a clean, modern design, and it was tough to get everything to stylize correctly with CSS and HTML. I 
 used Bootstrap on the flights page to populate a table, and it completely overrided my css and html. I had to reformat my stylizing so that the pages were more 
 consistent, and doing that was tedious since it was process of elimination on what worked.
-2) Bcrypt. Having to learn more about security was something that was definitely very interesting to me. However, since we only learned Spring Security in the 
-class, I had to self-learn how to incorporate bcrypt with spring.
+2) Bcrypt. Having to learn more about security was something that was definitely very new, interesting, and hard to grasp for me.
 3) Web API. I wanted to use a free online web api to pull in flight data, so that it was accurate instead of creating mock flight data. As it turns out, most travel 
 apis are monetized, and therefore, I wasn't able to find one with prices since I wasn't a travel partner. I managed to find Aviation Stack, which allowed me to pull 
 100 free flight requests daily. As you can imagine, that's not a ton of data, so I had to choose 100 flights setting off for the next day. 
