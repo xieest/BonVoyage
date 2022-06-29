@@ -3,6 +3,7 @@ package com.esterxie.flightmanagementsystem.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+//Maps the html pages 
 @Controller
 public class HomeController {
 

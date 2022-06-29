@@ -18,12 +18,26 @@ public class AuthenticationController {
 	@Autowired
 	private UserService userService;
 
+	/**
+	 * This controller is taking the user to the registration page.
+	 *
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/register")
 	public String register(Model model) {
 		model.addAttribute("user", new User());
 		return "register";
 	}
 
+	/**
+	 * This controller is accepting the incoming parameters from the registration
+	 * form.
+	 *
+	 * @param user
+	 * @param result
+	 * @return
+	 */
 	@PostMapping("/register")
 	public String register(@Valid User user, BindingResult result) {
 
@@ -51,7 +65,7 @@ public class AuthenticationController {
 	}
 
 	/**
-	 * This api is rendering the login page
+	 * Renders the login page.
 	 *
 	 * @return
 	 */
@@ -61,7 +75,7 @@ public class AuthenticationController {
 	}
 
 	/**
-	 * This api will be used to show errors on the frontend if happens.
+	 * Shows errors on the login page, if there are any.
 	 *
 	 * @param model
 	 * @return
@@ -72,6 +86,12 @@ public class AuthenticationController {
 		return "login";
 	}
 
+	/**
+	 * After a successful login, spring security will redirect the user to the
+	 * homepage.
+	 *
+	 * @return
+	 */
 	@GetMapping("/login-success")
 	public String loginSuccess() {
 		return "homepage";

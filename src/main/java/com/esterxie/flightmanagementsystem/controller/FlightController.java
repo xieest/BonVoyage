@@ -23,24 +23,52 @@ public class FlightController {
 	@Autowired
 	UserService userService;
 
+	/**
+	 * Fetches sorted flights and populates them on the flights page.
+	 *
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/list")
 	public String getAllFlights(Model model) {
 		model.addAttribute("flightsList", flightService.getAllFlightsSorted());
 		return "flights";
 	}
 
+	/**
+	 * Deletes a flight based on its id.
+	 *
+	 * @param flightNumber
+	 * @return
+	 */
 	@GetMapping("/delete/{id}")
 	public String deleteFlight(@PathVariable(name = "id") String flightNumber) {
 		flightService.deleteFlight(flightNumber);
 		return "redirect:/admin/dashboard";
 	}
 
+	/**
+	 * Search function. A user will be able to find a flight by city.
+	 *
+	 * @param keyword
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/search")
 	public String searchFlightCity(@RequestParam(name = "keyword") String keyword, Model model) {
 		model.addAttribute("flightsList", flightService.getFlightsByCity(keyword));
 		return "flights";
 	}
 
+	/**
+	 * Used to book a flight. When that book button will get hit, the request will
+	 * come here. and then we will check which user did that, and then add that
+	 * specific flights to his booked list.
+	 *
+	 * @param flightNumber
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/book/{id}")
 	public String bookFlight(@PathVariable(name = "id") String flightNumber, Model model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

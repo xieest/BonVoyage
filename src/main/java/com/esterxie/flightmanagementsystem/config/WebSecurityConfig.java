@@ -25,8 +25,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	UserDetailsService userDetailsService;
 
 	/**
-	 * This method is getting used when the user will login. It will authenticate
-	 * the user.
+	 * Used to authenticate the user.
 	 *
 	 * @param auth
 	 * @throws Exception
@@ -37,9 +36,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 
 	/**
-	 * This method is authorizing which requests should be authorized and which not
-	 * be. This will also handle which user can access which paths and which user
-	 * can do which.
+	 * This method is authorizing which requests should be authorized and handles
+	 * which user can access which paths.
 	 *
 	 * @param http
 	 * @throws Exception
@@ -70,13 +68,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 
 	/**
-	 * Its for allowing these 2 paths that we have html pages.
+	 * Everything listed here will be added to the page, past Spring Security.
 	 *
 	 * @param web
 	 * @throws Exception
 	 */
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers("/populateNewFlights/**", "/resources/**", "/static/**", "/game-photos/**", "/home");
+		web.ignoring().antMatchers("/populateNewFlights/**", "/resources/**", "/static/**", "/home");
 	}
 }

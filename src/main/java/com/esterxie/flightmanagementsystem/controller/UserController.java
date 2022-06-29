@@ -18,6 +18,13 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
+	/**
+	 * Used to delete an already booked flight for a user.
+	 *
+	 * @param flightNumber
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/flight/delete/{id}")
 	public String deleteBookedFlight(@PathVariable(name = "id") String flightNumber, Model model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -27,6 +34,13 @@ public class UserController {
 		return "userflights";
 	}
 
+	/**
+	 * Used to find which user is currently logged on, and displays their booked
+	 * flights.
+	 *
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/flights")
 	public String specificUserFlights(Model model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

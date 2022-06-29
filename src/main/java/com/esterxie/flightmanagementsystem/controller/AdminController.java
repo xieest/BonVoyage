@@ -15,6 +15,13 @@ public class AdminController {
 	@Autowired
 	FlightService flightService;
 
+	/**
+	 * This controller is taking us to the admin dashboard along with the details
+	 * that we are adding in the model to be used on that page.
+	 * 
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/dashboard")
 	public String dashboard(Model model) {
 		model.addAttribute("flightsList", flightService.getAllFlightsSorted());

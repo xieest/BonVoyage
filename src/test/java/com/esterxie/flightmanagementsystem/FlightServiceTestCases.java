@@ -30,6 +30,10 @@ public class FlightServiceTestCases {
 	@Autowired
 	private FlightService flightService;
 
+	/**
+	 * Tests our getAllFlightsSorted function. Checks whether our repository returns
+	 * the correct response or not.
+	 */
 	@Test
 	public void getAllFlightsSortedTest() {
 		Flight flight = new Flight();
@@ -44,6 +48,10 @@ public class FlightServiceTestCases {
 		assertEquals(flightsList, flightService.getAllFlightsSorted());
 	}
 
+	/**
+	 * Tests our getAllFlightsWithoutSort function. Checks whether our repository
+	 * returns the correct response or not.
+	 */
 	@Test
 	public void getAllFlightsWithoutSortTest() {
 		Flight flight = new Flight();
@@ -58,6 +66,11 @@ public class FlightServiceTestCases {
 		assertEquals(flightsList, flightService.getAllFlightsWithoutSort());
 	}
 
+	/**
+	 * Tests getFlightsByCity method. Here we are checking the output related to a
+	 * specific city In this we are checking whether our repository will return our
+	 * expected result or not.
+	 */
 	@Test
 	public void getFlightsByCityTest() {
 		Flight flight = new Flight();

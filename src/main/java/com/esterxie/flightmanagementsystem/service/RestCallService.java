@@ -24,6 +24,9 @@ public class RestCallService {
 	@Autowired
 	FlightRepository flightRepository;
 
+	/**
+	 * Calls the third party api and grabs the data from there.
+	 */
 	public void callingFlightApi() throws JsonProcessingException {
 		String url = "http://api.aviationstack.com/v1/flights?access_key=49264b2cbe332c5dfb680bf915718c37";
 

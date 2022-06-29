@@ -52,7 +52,7 @@ public class UserService implements UserDetailsService {
 	}
 
 	/**
-	 * In this function we are finding the user from the database against its email
+	 * Finds user in the database based on their email.
 	 *
 	 * @param email
 	 * @return
@@ -76,9 +76,7 @@ public class UserService implements UserDetailsService {
 	}
 
 	/**
-	 * This function is getting used to delete a specific flight from a specific
-	 * users list first we are finding whose user is that, then finding that flight
-	 * and just removing that from his list
+	 * Used to delete a specific flight from a specific users account.
 	 *
 	 * @param flightNumber
 	 * @param email
@@ -111,7 +109,7 @@ public class UserService implements UserDetailsService {
 	}
 
 	/**
-	 * This function is providing the role of the user that we have in the database.
+	 * Provides the role of the user in the database.
 	 *
 	 * @param user
 	 * @return

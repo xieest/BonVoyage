@@ -13,6 +13,12 @@ public class FlightRestApi {
 	@Autowired
 	RestCallService restCallService;
 
+	/**
+	 * Used to fetch the new data from the 3rd party api Aviation Stacks.
+	 *
+	 * @return
+	 * @throws JsonProcessingException
+	 */
 	@GetMapping("/populateNewFlights")
 	public String calling3rdPartyApi() throws JsonProcessingException {
 		restCallService.callingFlightApi();

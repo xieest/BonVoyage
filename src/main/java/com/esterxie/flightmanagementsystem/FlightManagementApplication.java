@@ -18,6 +18,14 @@ public class FlightManagementApplication {
 		SpringApplication.run(FlightManagementApplication.class, args);
 	}
 
+	/**
+	 * Used to check whether an admin account exists or not with this email. If it
+	 * doesn't exists then create an account and add it to the database.
+	 *
+	 * @param userRepository
+	 * @param passwordEncoder
+	 * @return
+	 */
 	@Bean
 	CommandLineRunner run(UserRepository userRepository, BCryptPasswordEncoder passwordEncoder) {
 		return args -> {
